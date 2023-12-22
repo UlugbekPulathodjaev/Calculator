@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
+
     <div class="container">
         <div class="calculator">
             <form>
@@ -46,7 +46,7 @@
             </form>
         </div>
     </div>
-    
+
     <script>
         function clearDisplay() {
             document.getElementById('display').value = '';
@@ -62,7 +62,7 @@
             var currentValue = display.value;
 
             if (currentValue === '' || isOperator(currentValue.charAt(currentValue.length - 1))) {
-                display.value += '0.'; 
+                display.value += '0.';
             } else {
                 if (currentValue.lastIndexOf('.') === -1 && currentValue.length < 11) {
                     display.value += '.';
