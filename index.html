@@ -51,16 +51,16 @@
         function clearDisplay() {
             document.getElementById('display').value = '';
         }
-
+    
         function deleteLastCharacter() {
-            var display = document.getElementById('display');
+            let display = document.getElementById('display');
             display.value = display.value.toString().slice(0, -1);
         }
-
+    
         function addDecimal() {
-            var display = document.getElementById('display');
-            var currentValue = display.value;
-
+            let display = document.getElementById('display');
+            let currentValue = display.value;
+    
             if (currentValue === '' || isOperator(currentValue.charAt(currentValue.length - 1))) {
                 display.value += '0.';
             } else {
@@ -69,31 +69,38 @@
                 }
             }
         }
-
+    
         function appendOperator(operator) {
-            var display = document.getElementById('display');
-            var currentValue = display.value;
-
+            let display = document.getElementById('display');
+            let currentValue = display.value;
+    
             if (isOperator(currentValue.charAt(currentValue.length - 1)) || currentValue.length >= 11) {
                 return;
             }
-
+    
             display.value += operator;
         }
-
+    
         function isOperator(char) {
             return char === '+' || char === '-' || char === '*' || char === '/';
         }
-
+    
         function appendToDisplay(value) {
-            var display = document.getElementById('display');
+            let display = document.getElementById('display');
             if (display.value.length < 12) {
                 display.value += value;
             }
         }
-
+    
         function evaluateExpression() {
-            document.getElementById('display').value = eval(document.getElementById('display').value);
+            let display = document.getElementById('display');
+            let result = eval(display.value);
+    
+            if (result.toString().length > 12) {
+                display.value = 'Error';
+            } else {
+                display.value = result;
+            }
         }
     </script>
 
