@@ -68,6 +68,9 @@ This calculator is provided under the [MIT License](LICENSE).
 
 Feel free to modify and enhance the calculator according to your needs. If you encounter any issues or have suggestions for improvement, please let us know.
 
+
+If you enjoyed my content, please reward me with a star, it's not difficult for you, but it means a lot to me ⭐ヾ(•ω•`)o
+
 Happy calculating! 🧮
 
 ---
@@ -133,5 +136,7 @@ Happy calculating! 🧮
 Этот калькулятор предоставляется по [лицензии MIT](LICENSE).
 
 Не стесняйтесь модифицировать и улучшать калькулятор в соответствии с вашими потребностями. Если у вас возникнут вопросы или будут предложения по улучшению, дайте нам знать.
+
+Если вам понравился мой контент, прошу вознаградите меня звездой, вам не сложно мне приятно ⭐ヾ(•ω•`)o
 
 Счастливого вычисления! 🧮
