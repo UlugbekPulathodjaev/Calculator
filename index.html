@@ -8,12 +8,11 @@
 </head>
 <body>
     
-
     <div class="container">
         <div class="calculator">
             <form>
                 <div class="display">
-                    <input type="text" name="display" id="display">
+                    <input type="text" name="display" id="display" maxlength="12">
                 </div>
                 <div>
                     <input type="button" value="AC" onclick="clearDisplay()" class="operator">
@@ -37,7 +36,7 @@
                     <input type="button" value="3" onclick="appendToDisplay('3')">
                     <input type="button" value="2" onclick="appendToDisplay('2')">
                     <input type="button" value="1" onclick="appendToDisplay('1')">
-                    <input type="button" value="+" onclick="appendOperator('+' )" class="operator">
+                    <input type="button" value="+" onclick="appendOperator('+')" class="operator">
                 </div>
                 <div>
                     <input type="button" value="00" onclick="appendToDisplay('00')">
@@ -52,52 +51,51 @@
         function clearDisplay() {
             document.getElementById('display').value = '';
         }
-    
+
         function deleteLastCharacter() {
             var display = document.getElementById('display');
             display.value = display.value.toString().slice(0, -1);
         }
-    
+
         function addDecimal() {
             var display = document.getElementById('display');
             var currentValue = display.value;
 
             if (currentValue === '' || isOperator(currentValue.charAt(currentValue.length - 1))) {
                 display.value += '0.'; 
-            } 
-            else
-            {
-                if (currentValue.lastIndexOf('.') === -1)
-                {
+            } else {
+                if (currentValue.lastIndexOf('.') === -1 && currentValue.length < 11) {
                     display.value += '.';
                 }
             }
         }
-    
+
         function appendOperator(operator) {
             var display = document.getElementById('display');
             var currentValue = display.value;
 
-            if (isOperator(currentValue.charAt(currentValue.length - 1))) return;
-            if (currentValue.lastIndexOf('.') > currentValue.lastIndexOf(operator)) return;
-            
+            if (isOperator(currentValue.charAt(currentValue.length - 1)) || currentValue.length >= 11) {
+                return;
+            }
+
             display.value += operator;
         }
-    
+
         function isOperator(char) {
             return char === '+' || char === '-' || char === '*' || char === '/';
         }
-    
+
         function appendToDisplay(value) {
-            document.getElementById('display').value += value;
+            var display = document.getElementById('display');
+            if (display.value.length < 12) {
+                display.value += value;
+            }
         }
-    
+
         function evaluateExpression() {
             document.getElementById('display').value = eval(document.getElementById('display').value);
         }
     </script>
-    
-        
 
 </body>
 </html>
